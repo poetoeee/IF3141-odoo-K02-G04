@@ -52,7 +52,7 @@
                     <div class="oe_title mb-3" style="background: linear-gradient(120deg, #f4faf8 0%, #ffffff 100%); border: 1px solid #dce8e4; border-radius: 12px; padding: 14px 16px;">
                         <p class="kkw-eyebrow">Master Produk</p>
                         <h1 class="kkw-title"><field name="name" placeholder="Misal: Kopi Susu Warga"/></h1>
-                        <p class="kkw-subtitle">Perbarui kategori, harga, dan ketersediaan menu dari satu halaman yang ringkas.</p>
+                        <!-- <p class="kkw-subtitle">Perbarui kategori, harga, dan ketersediaan menu dari satu halaman yang ringkas.</p> -->
                     </div>
 
                     <div class="kkw-metric-grid">

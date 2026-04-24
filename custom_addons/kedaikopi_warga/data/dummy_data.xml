@@ -148,7 +148,7 @@
         <field name="name">TRX-005</field>
         <field name="id_pos" ref="pos_atas"/>
         <field name="waktu_transaksi">2026-04-24 15:45:00</field>
-        <field name="total_harga">120000</field>
+        <field name="total_harga">112000</field>
         <field name="metode_pembayaran">debit</field>
     </record>
     <record id="trx_6" model="kedaikopi.transaction">
@@ -171,6 +171,126 @@
         <field name="waktu_transaksi">2026-04-22 10:00:00</field>
         <field name="total_harga">35000</field>
         <field name="metode_pembayaran">qris</field>
+    </record>
+
+    <record id="trx_1_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_1"/>
+        <field name="id_menu" ref="menu_1"/>
+        <field name="jumlah">2</field>
+        <field name="harga_satuan">20000</field>
+        <field name="subtotal">40000</field>
+    </record>
+    <record id="trx_2_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_2"/>
+        <field name="id_menu" ref="menu_4"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">25000</field>
+        <field name="subtotal">25000</field>
+    </record>
+    <record id="trx_3_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_3"/>
+        <field name="id_menu" ref="menu_7"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">35000</field>
+        <field name="subtotal">35000</field>
+    </record>
+    <record id="trx_3_item_2" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_3"/>
+        <field name="id_menu" ref="menu_2"/>
+        <field name="jumlah">2</field>
+        <field name="harga_satuan">15000</field>
+        <field name="subtotal">30000</field>
+    </record>
+    <record id="trx_3_item_3" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_3"/>
+        <field name="id_menu" ref="menu_1"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">20000</field>
+        <field name="subtotal">20000</field>
+    </record>
+    <record id="trx_4_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_4"/>
+        <field name="id_menu" ref="menu_7"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">35000</field>
+        <field name="subtotal">35000</field>
+    </record>
+    <record id="trx_4_item_2" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_4"/>
+        <field name="id_menu" ref="menu_1"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">20000</field>
+        <field name="subtotal">20000</field>
+    </record>
+    <record id="trx_5_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_5"/>
+        <field name="id_menu" ref="menu_8"/>
+        <field name="jumlah">2</field>
+        <field name="harga_satuan">22000</field>
+        <field name="subtotal">44000</field>
+    </record>
+    <record id="trx_5_item_2" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_5"/>
+        <field name="id_menu" ref="menu_3"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">28000</field>
+        <field name="subtotal">28000</field>
+    </record>
+    <record id="trx_5_item_3" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_5"/>
+        <field name="id_menu" ref="menu_4"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">25000</field>
+        <field name="subtotal">25000</field>
+    </record>
+    <record id="trx_5_item_4" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_5"/>
+        <field name="id_menu" ref="menu_2"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">15000</field>
+        <field name="subtotal">15000</field>
+    </record>
+    <record id="trx_6_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_6"/>
+        <field name="id_menu" ref="menu_5"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">25000</field>
+        <field name="subtotal">25000</field>
+    </record>
+    <record id="trx_6_item_2" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_6"/>
+        <field name="id_menu" ref="menu_1"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">20000</field>
+        <field name="subtotal">20000</field>
+    </record>
+    <record id="trx_7_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_7"/>
+        <field name="id_menu" ref="menu_7"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">35000</field>
+        <field name="subtotal">35000</field>
+    </record>
+    <record id="trx_7_item_2" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_7"/>
+        <field name="id_menu" ref="menu_1"/>
+        <field name="jumlah">2</field>
+        <field name="harga_satuan">20000</field>
+        <field name="subtotal">40000</field>
+    </record>
+    <record id="trx_8_item_1" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_8"/>
+        <field name="id_menu" ref="menu_2"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">15000</field>
+        <field name="subtotal">15000</field>
+    </record>
+    <record id="trx_8_item_2" model="kedaikopi.transaction_item">
+        <field name="id_transaksi" ref="trx_8"/>
+        <field name="id_menu" ref="menu_1"/>
+        <field name="jumlah">1</field>
+        <field name="harga_satuan">20000</field>
+        <field name="subtotal">20000</field>
     </record>
 
     <record id="lap_jan" model="kedaikopi.financial_report">

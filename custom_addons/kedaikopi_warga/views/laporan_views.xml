@@ -27,7 +27,7 @@
                     <div class="oe_title mb-3" style="background: linear-gradient(130deg, #f4faf8 0%, #ffffff 100%); border: 1px solid #dbe8e3; border-radius: 12px; padding: 14px 16px;">
                         <p class="kkw-eyebrow">Executive Summary</p>
                         <h1 class="kkw-title"><field name="periode" placeholder="Misal: April 2026"/></h1>
-                        <p class="kkw-subtitle">Ringkasan pendapatan, volume transaksi, beban PB1, dan estimasi laba rugi pada periode terpilih.</p>
+                        <!-- <p class="kkw-subtitle">Ringkasan pendapatan, volume transaksi, beban PB1, dan estimasi laba rugi pada periode terpilih.</p> -->
                     </div>
 
                     <div class="kkw-metric-grid">

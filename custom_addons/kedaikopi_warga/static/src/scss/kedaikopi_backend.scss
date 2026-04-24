@@ -130,3 +130,49 @@
     border-radius: 12px;
     border-width: 1px;
 }
+
+.kkw-shell .kkw-transaction-hero {
+    background: linear-gradient(120deg, #f4faf8 0%, #ffffff 100%);
+    border: 1px solid #dce8e4;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.kkw-shell .kkw-transaction-metrics .kkw-metric-card {
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(20, 59, 52, 0.07);
+}
+
+.kkw-shell .kkw-transaction-metrics .kkw-metric-card h3 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.kkw-shell .kkw-receipt-panel {
+    border: 1px solid #d8e4e1;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.kkw-shell .kkw-receipt-panel .o_field_widget.o_field_x2many,
+.kkw-shell .kkw-receipt-panel .o_x2m_control_panel,
+.kkw-shell .kkw-receipt-panel .o_list_renderer,
+.kkw-shell .kkw-receipt-panel .o_list_view,
+.kkw-shell .kkw-receipt-panel .o_list_table {
+    width: 100%;
+}
+
+.kkw-shell .kkw-receipt-panel .o_field_x2many .table-responsive {
+    overflow-x: auto;
+}
+
+.kkw-shell .kkw-receipt-panel .o_list_table thead th,
+.kkw-shell .kkw-receipt-panel .o_list_table tbody td {
+    white-space: normal;
+}
+
+.kkw-shell .kkw-total-panel {
+    border: 1px solid #cfe2dc;
+    border-radius: 12px;
+    background: #f7fbfa;
+}
