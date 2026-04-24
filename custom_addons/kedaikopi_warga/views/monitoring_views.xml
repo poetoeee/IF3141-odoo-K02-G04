@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_sync_log_search" model="ir.ui.view">
+        <field name="name">sync.log.search</field>
+        <field name="model">kedaikopi.sync_log</field>
+        <field name="arch" type="xml">
+            <search string="Filter Log Sinkronisasi">
+                <filter string="Log Sukses" name="sukses" domain="[('status_sinkron', '=', 'sukses')]"/>
+                <filter string="Log Gagal (Error)" name="gagal" domain="[('status_sinkron', '=', 'gagal')]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_sync_log_tree" model="ir.ui.view">
+        <field name="name">sync.log.tree</field>
+        <field name="model">kedaikopi.sync_log</field>
+        <field name="arch" type="xml">
+            <tree class="kkw-shell kkw-list" decoration-danger="status_sinkron == 'gagal'" decoration-success="status_sinkron == 'sukses'" decoration-warning="latency_ms &gt; 900">
+                <field name="name" string="ID Log"/>
+                <field name="id_pos"/>
+                <field name="waktu_sinkron"/>
+                <field name="latency_ms" string="Latency (ms)"/>
+                <field name="status_sinkron" widget="badge" decoration-danger="status_sinkron == 'gagal'" decoration-success="status_sinkron == 'sukses'"/>
+                <field name="jumlah_record"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sync_log_form" model="ir.ui.view">
+        <field name="name">sync.log.form</field>
+        <field name="model">kedaikopi.sync_log</field>
+        <field name="arch" type="xml">
+            <form class="kkw-shell">
+                <header>
+                    <button name="retrySync" string="Retry Sinkronisasi" type="object" class="btn-danger" invisible="status_sinkron == 'sukses'"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Sinkron Gagal" bg_color="text-bg-danger" invisible="status_sinkron == 'sukses'"/>
+                    <div class="oe_title mb-3" style="background: linear-gradient(120deg, #f5fbfa 0%, #ffffff 100%); border: 1px solid #dce8e5; border-radius: 12px; padding: 14px 16px;">
+                        <p class="kkw-eyebrow">Monitoring Integrasi</p>
+                        <h1 class="kkw-title"><field name="name"/></h1>
+                        <p class="kkw-subtitle">Pantau kesehatan sinkronisasi data antar POS secara terstruktur.</p>
+                    </div>
+
+                    <div class="kkw-metric-grid">
+                        <div class="kkw-metric-card" style="background: #ffffff; border: 1px solid #d9e6e2; border-radius: 12px; box-shadow: 0 8px 18px rgba(22, 62, 54, 0.07);">
+                            <h6>Status Sinkron</h6>
+                            <h3 invisible="status_sinkron == 'gagal'">Sukses</h3>
+                            <h3 invisible="status_sinkron == 'sukses'">Gagal</h3>
+                        </div>
+                        <div class="kkw-metric-card" style="background: #ffffff; border: 1px solid #d9e6e2; border-radius: 12px; box-shadow: 0 8px 18px rgba(22, 62, 54, 0.07);">
+                            <h6>Latency API</h6>
+                            <h3><field name="latency_ms" nolabel="1"/> ms</h3>
+                        </div>
+                        <div class="kkw-metric-card" style="background: #ffffff; border: 1px solid #d9e6e2; border-radius: 12px; box-shadow: 0 8px 18px rgba(22, 62, 54, 0.07);">
+                            <h6>Record Tersinkron</h6>
+                            <h3><field name="jumlah_record" nolabel="1"/></h3>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-danger kkw-alert-soft" role="alert" invisible="status_sinkron == 'sukses'">
+                        <strong>Perhatian:</strong> Sinkronisasi gagal! Silakan cek pesan error teknis di bawah.
+                    </div>
+
+                    <group class="kkw-panel" style="border: 1px solid #dce7e4; border-radius: 12px; padding: 10px; background: #ffffff;">
+                        <group><field name="name"/><field name="id_pos"/><field name="waktu_sinkron"/></group>
+                        <group><field name="status_sinkron" widget="badge"/><field name="latency_ms"/><field name="jumlah_record"/></group>
+                    </group>
+
+                    <group string="Detail Error Teknisi" class="kkw-panel" style="border: 1px solid #f1d1d7; border-radius: 12px; padding: 10px; background: #fff8f9;" invisible="status_sinkron == 'sukses'">
+                        <field name="pesan_error" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_kedaikopi_sync_log" model="ir.actions.act_window">
+        <field name="name">Log Sinkronisasi PoS</field>
+        <field name="res_model">kedaikopi.sync_log</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_sync_log_search"/>
+    </record>
+    <menuitem id="menu_sync_log" name="Log Sinkronisasi" parent="menu_it_category" action="action_kedaikopi_sync_log" sequence="1"/>
+</odoo>

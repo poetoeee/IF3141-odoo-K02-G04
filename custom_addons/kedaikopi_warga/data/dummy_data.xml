@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_atas" model="kedaikopi.pos_system">
+        <field name="name">Kasir Lantai Atas</field>
+        <field name="lokasi_lantai">atas</field>
+    </record>
+    <record id="pos_bawah" model="kedaikopi.pos_system">
+        <field name="name">Kasir Lantai Bawah</field>
+        <field name="lokasi_lantai">bawah</field>
+    </record>
+
+    <record id="kat_kopi" model="kedaikopi.menu_category"><field name="name">Kopi</field></record>
+    <record id="kat_nonkopi" model="kedaikopi.menu_category"><field name="name">Non-Kopi</field></record>
+    <record id="kat_snack" model="kedaikopi.menu_category"><field name="name">Snack</field></record>
+    <record id="kat_pastry" model="kedaikopi.menu_category"><field name="name">Pastry</field></record>
+
+    <record id="menu_1" model="kedaikopi.menu_item">
+        <field name="name">Kopi Susu Warga</field>
+        <field name="id_kategori" ref="kat_kopi"/>
+        <field name="harga">20000</field>
+        <field name="status_tersedia">True</field>
+    </record>
+    <record id="menu_2" model="kedaikopi.menu_item">
+        <field name="name">Americano Iced</field>
+        <field name="id_kategori" ref="kat_kopi"/>
+        <field name="harga">15000</field>
+        <field name="status_tersedia">True</field>
+    </record>
+    <record id="menu_3" model="kedaikopi.menu_item">
+        <field name="name">Caramel Macchiato</field>
+        <field name="id_kategori" ref="kat_kopi"/>
+        <field name="harga">28000</field>
+        <field name="status_tersedia">True</field>
+    </record>
+    <record id="menu_4" model="kedaikopi.menu_item">
+        <field name="name">Matcha Latte Cream</field>
+        <field name="id_kategori" ref="kat_nonkopi"/>
+        <field name="harga">25000</field>
+        <field name="status_tersedia">True</field>
+    </record>
+    <record id="menu_5" model="kedaikopi.menu_item">
+        <field name="name">Red Velvet Latte</field>
+        <field name="id_kategori" ref="kat_nonkopi"/>
+        <field name="harga">25000</field>
+        <field name="status_tersedia">False</field> </record>
+    <record id="menu_6" model="kedaikopi.menu_item">
+        <field name="name">Kentang Goreng</field>
+        <field name="id_kategori" ref="kat_snack"/>
+        <field name="harga">18000</field>
+        <field name="status_tersedia">True</field> 
+    </record>
+    <record id="menu_7" model="kedaikopi.menu_item">
+        <field name="name">Platter Warga</field>
+        <field name="id_kategori" ref="kat_snack"/>
+        <field name="harga">35000</field>
+        <field name="status_tersedia">True</field> 
+    </record>
+    <record id="menu_8" model="kedaikopi.menu_item">
+        <field name="name">Croissant Butter</field>
+        <field name="id_kategori" ref="kat_pastry"/>
+        <field name="harga">22000</field>
+        <field name="status_tersedia">True</field> 
+    </record>
+    <record id="menu_9" model="kedaikopi.menu_item">
+        <field name="name">Brownies Coklat Lumer</field>
+        <field name="id_kategori" ref="kat_pastry"/>
+        <field name="harga">20000</field>
+        <field name="status_tersedia">False</field> </record>
+
+    <record id="log_1" model="kedaikopi.sync_log">
+        <field name="name">SYNC-424-01</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_sinkron">2026-04-24 08:00:00</field>
+        <field name="status_sinkron">sukses</field>
+        <field name="latency_ms">45</field>
+        <field name="jumlah_record">150</field>
+    </record>
+    <record id="log_2" model="kedaikopi.sync_log">
+        <field name="name">SYNC-424-02</field>
+        <field name="id_pos" ref="pos_bawah"/>
+        <field name="waktu_sinkron">2026-04-24 08:05:00</field>
+        <field name="status_sinkron">sukses</field>
+        <field name="latency_ms">62</field>
+        <field name="jumlah_record">120</field>
+    </record>
+    <record id="log_3" model="kedaikopi.sync_log">
+        <field name="name">SYNC-424-03</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_sinkron">2026-04-24 12:00:00</field>
+        <field name="status_sinkron">sukses</field>
+        <field name="latency_ms">55</field>
+        <field name="jumlah_record">85</field>
+    </record>
+    <record id="log_4" model="kedaikopi.sync_log">
+        <field name="name">SYNC-424-04</field>
+        <field name="id_pos" ref="pos_bawah"/>
+        <field name="waktu_sinkron">2026-04-24 12:05:00</field>
+        <field name="status_sinkron">gagal</field>
+        <field name="latency_ms">1205</field>
+        <field name="pesan_error">Connection Timeout: API Endpoint 192.168.1.15 unreachable. Network packet loss detected.</field>
+    </record>
+    <record id="log_5" model="kedaikopi.sync_log">
+        <field name="name">SYNC-424-05</field>
+        <field name="id_pos" ref="pos_bawah"/>
+        <field name="waktu_sinkron">2026-04-24 12:15:00</field>
+        <field name="status_sinkron">sukses</field>
+        <field name="latency_ms">80</field>
+        <field name="jumlah_record">45</field>
+    </record>
+    <record id="log_6" model="kedaikopi.sync_log">
+        <field name="name">SYNC-424-06</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_sinkron">2026-04-24 18:00:00</field>
+        <field name="status_sinkron">gagal</field>
+        <field name="latency_ms">850</field>
+        <field name="pesan_error">API Error 500: Internal Server Error on Endpoint /api/sync. Payload rejection.</field>
+    </record>
+
+    <record id="trx_1" model="kedaikopi.transaction">
+        <field name="name">TRX-001</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_transaksi">2026-04-24 08:30:00</field>
+        <field name="total_harga">40000</field>
+        <field name="metode_pembayaran">qris</field>
+    </record>
+    <record id="trx_2" model="kedaikopi.transaction">
+        <field name="name">TRX-002</field>
+        <field name="id_pos" ref="pos_bawah"/>
+        <field name="waktu_transaksi">2026-04-24 09:15:00</field>
+        <field name="total_harga">25000</field>
+        <field name="metode_pembayaran">tunai</field>
+    </record>
+    <record id="trx_3" model="kedaikopi.transaction">
+        <field name="name">TRX-003</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_transaksi">2026-04-24 12:30:00</field>
+        <field name="total_harga">85000</field>
+        <field name="metode_pembayaran">debit</field>
+    </record>
+    <record id="trx_4" model="kedaikopi.transaction">
+        <field name="name">TRX-004</field>
+        <field name="id_pos" ref="pos_bawah"/>
+        <field name="waktu_transaksi">2026-04-24 13:00:00</field>
+        <field name="total_harga">55000</field>
+        <field name="metode_pembayaran">qris</field>
+    </record>
+    <record id="trx_5" model="kedaikopi.transaction">
+        <field name="name">TRX-005</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_transaksi">2026-04-24 15:45:00</field>
+        <field name="total_harga">120000</field>
+        <field name="metode_pembayaran">debit</field>
+    </record>
+    <record id="trx_6" model="kedaikopi.transaction">
+        <field name="name">TRX-006</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_transaksi">2026-04-23 19:20:00</field>
+        <field name="total_harga">45000</field>
+        <field name="metode_pembayaran">tunai</field>
+    </record>
+    <record id="trx_7" model="kedaikopi.transaction">
+        <field name="name">TRX-007</field>
+        <field name="id_pos" ref="pos_bawah"/>
+        <field name="waktu_transaksi">2026-04-23 20:10:00</field>
+        <field name="total_harga">75000</field>
+        <field name="metode_pembayaran">qris</field>
+    </record>
+    <record id="trx_8" model="kedaikopi.transaction">
+        <field name="name">TRX-008</field>
+        <field name="id_pos" ref="pos_atas"/>
+        <field name="waktu_transaksi">2026-04-22 10:00:00</field>
+        <field name="total_harga">35000</field>
+        <field name="metode_pembayaran">qris</field>
+    </record>
+
+    <record id="lap_jan" model="kedaikopi.financial_report">
+        <field name="name">LAP-01-2026</field>
+        <field name="periode">Januari 2026</field>
+        <field name="tanggal_periode">2026-01-31</field>
+        <field name="total_pendapatan">35000000</field>
+        <field name="total_transaksi">900</field>
+        <field name="total_pajak_pb1">3500000</field>
+        <field name="estimasi_laba_rugi">8000000</field>
+    </record>
+    <record id="lap_feb" model="kedaikopi.financial_report">
+        <field name="name">LAP-02-2026</field>
+        <field name="periode">Februari 2026</field>
+        <field name="tanggal_periode">2026-02-28</field>
+        <field name="total_pendapatan">38000000</field>
+        <field name="total_transaksi">1100</field>
+        <field name="total_pajak_pb1">3800000</field>
+        <field name="estimasi_laba_rugi">10000000</field>
+    </record>
+    <record id="lap_mar" model="kedaikopi.financial_report">
+        <field name="name">LAP-03-2026</field>
+        <field name="periode">Maret 2026</field>
+        <field name="tanggal_periode">2026-03-31</field>
+        <field name="total_pendapatan">45000000</field>
+        <field name="total_transaksi">1250</field>
+        <field name="total_pajak_pb1">4500000</field>
+        <field name="estimasi_laba_rugi">15000000</field>
+    </record>
+    <record id="lap_apr" model="kedaikopi.financial_report">
+        <field name="name">LAP-04-2026</field>
+        <field name="periode">April 2026</field>
+        <field name="tanggal_periode">2026-04-24</field>
+        <field name="total_pendapatan">28000000</field>
+        <field name="total_transaksi">850</field>
+        <field name="total_pajak_pb1">2800000</field>
+        <field name="estimasi_laba_rugi">-2500000</field> </record>
+    <record id="lap_mei" model="kedaikopi.financial_report">
+        <field name="name">LAP-05-2026</field>
+        <field name="periode">Mei 2026 (Proyeksi)</field>
+        <field name="tanggal_periode">2026-05-31</field>
+        <field name="total_pendapatan">50000000</field>
+        <field name="total_transaksi">1400</field>
+        <field name="total_pajak_pb1">5000000</field>
+        <field name="estimasi_laba_rugi">18000000</field> </record>
+</odoo>

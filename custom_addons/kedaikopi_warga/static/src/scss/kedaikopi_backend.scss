@@ -1,0 +1,132 @@
+.kkw-shell {
+    --kkw-brand: #184f45;
+    --kkw-brand-soft: #d8ece8;
+    --kkw-accent: #b26a2a;
+    --kkw-ink: #1f2a2a;
+    --kkw-muted: #6a7575;
+}
+
+.kkw-shell .kkw-eyebrow {
+    margin-bottom: 0.35rem;
+    color: var(--kkw-accent);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.kkw-shell .kkw-title {
+    color: var(--kkw-ink);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.kkw-shell .kkw-subtitle {
+    margin-top: 0.25rem;
+    margin-bottom: 0;
+    color: var(--kkw-muted);
+    font-size: 0.92rem;
+}
+
+.kkw-shell .kkw-metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 0 0 1rem;
+}
+
+.kkw-shell .kkw-metric-card {
+    border: 1px solid #d9e2e2;
+    border-radius: 14px;
+    background: linear-gradient(165deg, #ffffff 0%, #f6fbfa 100%);
+    padding: 14px;
+    box-shadow: 0 8px 20px rgba(27, 61, 57, 0.06);
+}
+
+.kkw-shell .kkw-metric-card h6 {
+    margin: 0 0 6px;
+    color: var(--kkw-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.kkw-shell .kkw-metric-card h3 {
+    margin: 0;
+    color: var(--kkw-brand);
+    font-size: 1.28rem;
+    font-weight: 700;
+}
+
+.kkw-shell .kkw-panel {
+    border: 1px solid #dde6e5;
+    border-radius: 14px;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(27, 61, 57, 0.05);
+}
+
+.kkw-shell .kkw-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.kkw-shell .kkw-chip.is-success {
+    background: #dff3e7;
+    color: #175c34;
+}
+
+.kkw-shell .kkw-chip.is-danger {
+    background: #fde7ea;
+    color: #8d1a2c;
+}
+
+.kkw-menu-kanban .kkw-menu-card {
+    border: 1px solid #dce7e3;
+    border-radius: 14px;
+    background: linear-gradient(175deg, #ffffff 0%, #f7fbfa 100%);
+    box-shadow: 0 12px 24px rgba(27, 61, 57, 0.06);
+    transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.kkw-menu-kanban .kkw-menu-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(27, 61, 57, 0.1);
+}
+
+.kkw-menu-kanban .kkw-price-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background-color: var(--kkw-brand-soft);
+    color: var(--kkw-brand);
+    padding: 0.45rem 0.8rem;
+    font-weight: 700;
+}
+
+.kkw-list .o_list_view {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.kkw-list .o_list_table thead th {
+    background: #eff5f3;
+    color: #2f4b47;
+    font-weight: 700;
+    border-bottom: 1px solid #d7e3df;
+}
+
+.kkw-list .o_data_row td {
+    vertical-align: middle;
+}
+
+.kkw-alert-soft {
+    border-radius: 12px;
+    border-width: 1px;
+}

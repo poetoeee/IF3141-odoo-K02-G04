@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem id="kedaikopi_root_menu" name="Sistem POS Terpusat" sequence="10"/>
+    <menuitem id="menu_ops_category" name="Operasional" parent="kedaikopi_root_menu" sequence="10"/>
+    <menuitem id="menu_finance_category" name="Keuangan" parent="kedaikopi_root_menu" sequence="20"/>
+    <menuitem id="menu_it_category" name="Sistem &amp; IT" parent="kedaikopi_root_menu" sequence="30"/>
+</odoo>

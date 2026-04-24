@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_financial_report_tree" model="ir.ui.view">
+        <field name="name">financial.report.tree</field>
+        <field name="model">kedaikopi.financial_report</field>
+        <field name="arch" type="xml">
+            <tree string="Laporan Keuangan" class="kkw-shell kkw-list" default_order="tanggal_periode desc">
+                <field name="currency_id" column_invisible="True"/>
+                <field name="name" string="ID Laporan" decoration-bf="1"/>
+                <field name="periode"/>
+                <field name="total_pendapatan" widget="monetary" sum="Total Pendapatan"/>
+                <field name="estimasi_laba_rugi" widget="monetary" decoration-success="estimasi_laba_rugi &gt; 0" decoration-danger="estimasi_laba_rugi &lt; 0"/>
+                <button name="eksporLaporan" type="object" string="Unduh PDF" icon="fa-download" class="btn-primary btn-sm"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_financial_report_form" model="ir.ui.view">
+        <field name="name">financial.report.form</field>
+        <field name="model">kedaikopi.financial_report</field>
+        <field name="arch" type="xml">
+            <form string="Executive Dashboard" class="kkw-shell">
+                <header>
+                    <button name="eksporLaporan" string="Ekspor PDF" type="object" class="btn-success oe_highlight" icon="fa-file-pdf-o"/>
+                </header>
+                <sheet>
+                    <div class="oe_title mb-3" style="background: linear-gradient(130deg, #f4faf8 0%, #ffffff 100%); border: 1px solid #dbe8e3; border-radius: 12px; padding: 14px 16px;">
+                        <p class="kkw-eyebrow">Executive Summary</p>
+                        <h1 class="kkw-title"><field name="periode" placeholder="Misal: April 2026"/></h1>
+                        <p class="kkw-subtitle">Ringkasan pendapatan, volume transaksi, beban PB1, dan estimasi laba rugi pada periode terpilih.</p>
+                    </div>
+
+                    <div class="kkw-metric-grid">
+                        <div class="kkw-metric-card" style="border-left: 4px solid #1e6b5a; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 18px rgba(20, 59, 52, 0.07);">
+                            <h6>Total Pendapatan</h6>
+                            <field name="currency_id" invisible="1"/>
+                            <h3><field name="total_pendapatan" widget="monetary" nolabel="1"/></h3>
+                        </div>
+                        <div class="kkw-metric-card" style="border-left: 4px solid #2d7c93; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 18px rgba(20, 59, 52, 0.07);">
+                            <h6>Volume Transaksi</h6>
+                            <h3><field name="total_transaksi" nolabel="1"/></h3>
+                        </div>
+                        <div class="kkw-metric-card" style="border-left: 4px solid #ba7a24; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 18px rgba(20, 59, 52, 0.07);">
+                            <h6>Estimasi Pajak PB1</h6>
+                            <h3><field name="total_pajak_pb1" widget="monetary" nolabel="1"/></h3>
+                        </div>
+                        <div class="kkw-metric-card" style="border-left: 4px solid #25753f; background: #ffffff; border-radius: 12px; box-shadow: 0 8px 18px rgba(20, 59, 52, 0.07);">
+                            <h6>Laba Bersih</h6>
+                            <h3><field name="estimasi_laba_rugi" widget="monetary" nolabel="1"/></h3>
+                        </div>
+                    </div>
+
+                    <group string="Metadata Dokumen" class="kkw-panel" style="border: 1px solid #dbe7e3; border-radius: 12px; padding: 10px; background: #ffffff;">
+                        <group>
+                            <field name="name" string="ID Dokumen Laporan"/>
+                            <field name="tanggal_periode"/>
+                        </group>
+                        <group>
+                            <field name="tanggal_dibuat" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_financial_report_graph" model="ir.ui.view">
+        <field name="name">financial.report.graph</field>
+        <field name="model">kedaikopi.financial_report</field>
+        <field name="arch" type="xml">
+            <graph string="Tren Penjualan" type="line" sample="1">
+                <field name="tanggal_periode" interval="day"/>
+                <field name="total_pendapatan" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_kedaikopi_financial_report" model="ir.actions.act_window">
+        <field name="name">Dashboard Keuangan</field>
+        <field name="res_model">kedaikopi.financial_report</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+    <menuitem id="menu_laporan" name="Dashboard Laporan" parent="menu_finance_category" action="action_kedaikopi_financial_report" sequence="1"/>
+</odoo>

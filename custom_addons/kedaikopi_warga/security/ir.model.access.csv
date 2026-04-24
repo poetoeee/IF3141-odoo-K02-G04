@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pos_system,kedaikopi.pos_system,model_kedaikopi_pos_system,,1,1,1,1
+access_menu_category,kedaikopi.menu_category,model_kedaikopi_menu_category,,1,1,1,1
+access_menu_item,kedaikopi.menu_item,model_kedaikopi_menu_item,,1,1,1,1
+access_transaction,kedaikopi.transaction,model_kedaikopi_transaction,,1,1,1,1
+access_transaction_item,kedaikopi.transaction_item,model_kedaikopi_transaction_item,,1,1,1,1
+access_financial_report,kedaikopi.financial_report,model_kedaikopi_financial_report,,1,1,1,1
+access_sync_log,kedaikopi.sync_log,model_kedaikopi_sync_log,,1,1,1,1

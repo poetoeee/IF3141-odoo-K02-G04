@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_transaction_search" model="ir.ui.view">
+        <field name="name">transaction.search</field>
+        <field name="model">kedaikopi.transaction</field>
+        <field name="arch" type="xml">
+            <search string="Filter Data Transaksi">
+                <filter string="Hari Ini" name="today" domain="[('waktu_transaksi', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00'))]"/>
+                
+                <searchpanel>
+                    <field name="id_pos" icon="fa-building" string="Lokasi POS (Lantai)" enable_counters="1"/>
+                    <field name="metode_pembayaran" icon="fa-credit-card" string="Metode Pembayaran"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_transaction_tree" model="ir.ui.view">
+        <field name="name">transaction.tree</field>
+        <field name="model">kedaikopi.transaction</field>
+        <field name="arch" type="xml">
+            <tree string="Riwayat Transaksi" class="kkw-shell kkw-list" export_xlsx="true" default_order="waktu_transaksi desc">
+                <field name="currency_id" column_invisible="True"/>
+                <field name="name" string="ID Transaksi" decoration-bf="1"/>
+                <field name="waktu_transaksi"/>
+                <field name="id_pos" widget="badge" decoration-info="1"/>
+                <field name="metode_pembayaran" widget="badge" decoration-muted="metode_pembayaran == 'tunai'" decoration-info="metode_pembayaran == 'debit'" decoration-success="metode_pembayaran == 'qris'"/>
+                <field name="total_harga" sum="Total Pendapatan" widget="monetary" decoration-bf="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_kedaikopi_transaction" model="ir.actions.act_window">
+        <field name="name">Data Transaksi Terpusat</field>
+        <field name="res_model">kedaikopi.transaction</field>
+        <field name="view_mode">tree</field>
+        <field name="search_view_id" ref="view_transaction_search"/>
+    </record>
+    <menuitem id="menu_transaksi" name="Riwayat Transaksi" parent="menu_ops_category" action="action_kedaikopi_transaction" sequence="1"/>
+</odoo>
